@@ -46,6 +46,19 @@ public class Description implements Serializable {
     }
 
     /**
+    * Create a <code>Description</code> named <code>name</code>.
+    * Generally, you will add children to this <code>Description</code>.
+    *
+    * @param clazz the test class of the <code>Description</code>
+    * @param name the name of the <code>Description</code>
+    * @param annotations meta-data about the test, for downstream interpreters
+    * @return a <code>Description</code> named <code>name</code>
+    */
+    public static Description createSuiteDescription(Class<?> clazz, String name, Annotation... annotations) {
+        return new Description(clazz, name, annotations);
+    }
+
+    /**
      * Create a <code>Description</code> named <code>name</code>.
      * Generally, you will add children to this <code>Description</code>.
      *

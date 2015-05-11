@@ -95,6 +95,11 @@ public class DescriptionTest {
         assertEquals(1, d.getAnnotations().size());
         assertEquals(Ignore.class, d.getAnnotations().iterator().next().annotationType());
 
+        d = Description.createSuiteDescription(clazz, clazz.getName(), new Annotation[]{});
+        assertEquals(clazz, d.getTestClass());
+        assertNull(d.getMethodName());
+        assertEquals(0, d.getAnnotations().size());
+
         d = Description.createTestDescription(clazz, "tessed");
         assertEquals(clazz, d.getTestClass());
         assertEquals("tessed", d.getMethodName());
